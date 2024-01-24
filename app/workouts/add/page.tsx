@@ -4,6 +4,7 @@ import TagsSelection from "@/components/TagsSelection";
 import EditableWorkoutExerciseList from "@/components/exercises/EditableWorkoutExerciseList";
 import ExerciseCarousel from "@/components/exercises/ExerciseCarousel";
 import DropContainer from "@/components/ui/DropContainer";
+import addPublicWorkout from "@/lib/server/serverActions/addPublicWorkout";
 import { Tags } from "@/lib/types/Excercise";
 import useEditableWorkout from "@/lib/utils/hooks/useEditableWorkout";
 
@@ -26,6 +27,10 @@ export default function AddWorkoutPage() {
 
   const { exerciseList, addExercise, ...rest } = useEditableWorkout();
 
+  const onSave = () => {
+    addPublicWorkout("test", "test", exerciseList);
+  };
+
   return (
     <>
       <div>
@@ -42,6 +47,7 @@ export default function AddWorkoutPage() {
           <EditableWorkoutExerciseList
             exercisesList={exerciseList}
             isPersonalized={false}
+            onSave={onSave}
             {...rest}
           />
         </DropContainer>

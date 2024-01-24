@@ -1,7 +1,7 @@
 "use client";
 
 import { useDrag } from "react-dnd";
-import YoutubeVideo from "../YoutubeVideo";
+import YoutubeVideo from "../../YoutubeVideo";
 import { ExcerciseLeanDTO } from "@/lib/types/Excercise";
 
 type ExerciseCarouselItemWithVideoInfo = ExcerciseLeanDTO & {

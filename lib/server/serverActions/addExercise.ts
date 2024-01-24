@@ -3,7 +3,7 @@
 import connectDB from "../db/connection";
 import { ExerciseModel } from "../db/models";
 
-export const addExercise = async (formData: FormData) => {
+const addExercise = async (formData: FormData) => {
     await connectDB()
 
     const title = formData.get("title")?.toString() ?? "";
@@ -26,3 +26,5 @@ export const addExercise = async (formData: FormData) => {
       console.log(err)
     }
   };
+
+  export default addExercise;
