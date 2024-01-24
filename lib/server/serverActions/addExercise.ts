@@ -23,7 +23,7 @@ const addExercise = async (formData: FormData) => {
     try {
       await model.save();
     } catch(err) {
-      console.log(err)
+      console.error(err)
     }
   };
 

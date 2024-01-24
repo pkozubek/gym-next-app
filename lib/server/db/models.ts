@@ -12,16 +12,14 @@ const ExerciseSchema = new mongoose.Schema<ExcerciseDTO>({
 
 export const ExerciseModel = mongoose.models?.Exercise as mongoose.Model<ExcerciseDTO>  || mongoose.model<ExcerciseDTO>("Exercise", ExerciseSchema);
 
-const PublicWorkoutExerciseRecord = new mongoose.Schema({
-    exerciseId: {type: mongoose.Schema.Types.ObjectId, ref: "exercises"},
-    reps: Number,
-    order: Number
-})
-
 const PublicWorkoutSchema = new mongoose.Schema<PublicWorkoutDTO>({
     title: {type: String, required: true},
     description: {type: String},
-    exercises: [PublicWorkoutExerciseRecord]
+    exercises: [{
+        exerciseId: {type: mongoose.Schema.Types.ObjectId, ref: "Exercise"},
+        reps: Number,
+        order: Number
+    }]
 });
 
 

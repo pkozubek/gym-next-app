@@ -30,7 +30,7 @@ const addPublicWorkout = async (title: string, description: string,exercisesList
         await publicWorkoutModel.save();
         isFinishedWithSuccess = true;
     } catch(err) {
-        console.log(err);
+        console.error(err);
     }
     
     if(isFinishedWithSuccess) {

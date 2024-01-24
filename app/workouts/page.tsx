@@ -20,12 +20,19 @@ export default async function WorkoutsPage({
 
   const workouts = await getPublicWorkouts(page, PAGE_SIZE);
 
-  console.log(workouts[0].exercises);
-
   return (
     <div>
       <Suspense fallback={<Loader />}>
         {!!user && <Link href={"/workouts/add"}>Add</Link>}
+      </Suspense>
+      <Suspense>
+        <ul className="flex flex-col mt-4">
+          {workouts.map((workout) => (
+            <Link href={`/workouts/${workout._id.toString()}`}>
+              {workout.title}
+            </Link>
+          ))}
+        </ul>
       </Suspense>
     </div>
   );
