@@ -1,23 +1,23 @@
 "use client";
 
 import { Tags } from "@/lib/types/Excercise";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const tagsValues = Object.values(Tags);
 
 type TagsSelectionProps = {
-  selectTag?: (value: Tags) => void;
+  selectHandler?: (value: Tags[]) => void;
   preSelected?: Tags[];
 };
 
 export default function TagsSelection({
-  selectTag,
+  selectHandler,
   preSelected,
 }: TagsSelectionProps) {
   const [selectedTags, setSelectedTags] = useState(preSelected || []);
 
   const onTagSelection = (value: Tags) => {
-    if (selectTag) {
+    if (selectHandler) {
       setSelectedTags((currentTags) => {
         if (currentTags.includes(value)) {
           return [...currentTags.filter((tag) => tag !== value)];
@@ -25,10 +25,12 @@ export default function TagsSelection({
           return [...currentTags, value];
         }
       });
-
-      selectTag(value);
     }
   };
+
+  useEffect(() => {
+    if (selectHandler) selectHandler(selectedTags);
+  }, [selectedTags]);
 
   return (
     <div className="flex gap-x-1 cursor-pointer">

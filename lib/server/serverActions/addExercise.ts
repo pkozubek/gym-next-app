@@ -1,29 +1,30 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import connectDB from "../db/connection";
 import { ExerciseModel } from "../db/models";
+import { redirect } from "next/navigation";
+import { ExcerciseDTO } from "@/lib/types/Excercise";
 
-const addExercise = async (formData: FormData) => {
+const addExercise = async (exerciseInfo: ExcerciseDTO) => {
     await connectDB()
 
-    const title = formData.get("title")?.toString() ?? "";
-    const description = formData.get("description")?.toString() ?? "";
-    const videoUrl = formData.get("videoUrl")?.toString() ?? "";
-    const imageUrl = formData.get("imageUrl")?.toString() ?? "";
-    const tags = formData.getAll("tags") || [];
-
     const model = new ExerciseModel({
-      description,
-      imageUrl,
-      tags,
-      title,
-      videoUrl
+      ...exerciseInfo
     })
     
+    let isFinishedWithSuccess = false;
+
     try {
       await model.save();
+      isFinishedWithSuccess = true;
     } catch(err) {
       console.error(err)
+    }
+
+    if(isFinishedWithSuccess) {
+      revalidatePath('/exercises');
+      redirect('/exercises');
     }
   };
 

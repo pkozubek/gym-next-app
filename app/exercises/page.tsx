@@ -1,6 +1,7 @@
 import ExerciseCard from "@/components/exercises/ExerciseCard";
 import { getExercises } from "@/lib/server/services/exerciseService";
 import { PAGE_SIZE } from "@/lib/utils/consts";
+import Link from "next/link";
 
 type ExercisePageProps = {
   searchParams: {
@@ -18,7 +19,9 @@ export default async function ExcercisesPage({
   return (
     <div className="grid grid-cols-4 p-4 gap-8">
       {records.map(({ videoUrl, _id, ...exerciseProps }) => (
-        <ExerciseCard {...exerciseProps} key={_id.toString()} />
+        <Link href={`/exercises/${_id.toString()}`}>
+          <ExerciseCard {...exerciseProps} key={_id.toString()} />
+        </Link>
       ))}
     </div>
   );

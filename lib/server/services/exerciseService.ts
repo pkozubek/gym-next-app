@@ -55,3 +55,9 @@ export async function getExercisesFilteredByTags(tags: Tags[], page?: number, pa
 
     return resp;
 }
+
+export async function GetExerciseById(exerciseId: string) {
+    await connectDB();
+
+    return ExerciseModel.findById(exerciseId).lean();
+}

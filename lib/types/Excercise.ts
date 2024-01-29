@@ -5,7 +5,7 @@ export type ExcerciseDTO = {
     description: string;
     videoUrl: string;
     imageUrl: string;
-    tags: Array<string>;
+    tags: Array<Tags>;
 };
 
 export type WorkoutExerciseItem = Pick<ExcerciseLeanDTO, 'title' | 'tags' | 'imageUrl' | 'videoUrl' | '_id'> & {
