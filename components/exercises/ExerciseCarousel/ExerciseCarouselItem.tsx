@@ -3,6 +3,7 @@
 import { useDrag } from "react-dnd";
 import YoutubeVideo from "../../YoutubeVideo";
 import { ExcerciseLeanDTO } from "@/lib/types/Excercise";
+import { DraggableItems } from "@/lib/types/Enums";
 
 type ExerciseCarouselItemWithVideoInfo = ExcerciseLeanDTO & {
   isVideoOpen: boolean;
@@ -24,7 +25,7 @@ export default function ExerciseCarouselItem({
   };
 
   const [{ isDragging }, dragRef] = useDrag(() => ({
-    type: "exercise",
+    type: DraggableItems.EXERCISE,
     item: { name: _id },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<{ name: string }>();

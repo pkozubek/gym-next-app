@@ -13,9 +13,6 @@ const editExercise = async (id: string, exerciseInfo: ExcerciseDTO) => {
 
     let isFinishedWithSuccess = false;
     if(existingModel) {
-
-        console.log("existing model", id, existingModel, exerciseInfo);
-
         existingModel.title = exerciseInfo.title;
         existingModel.description = exerciseInfo.description;
         existingModel.videoUrl = exerciseInfo.videoUrl;

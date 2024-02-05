@@ -32,7 +32,7 @@ export default function Navbar() {
           <Link href={"/workouts"}>Workouts</Link>
         </li>
         <li>
-          <Link href={"/routine"}>Routine</Link>
+          <Link href={"/routines"}>Routine</Link>
         </li>
       </ul>
       <div>

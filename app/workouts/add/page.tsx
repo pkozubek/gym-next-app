@@ -5,6 +5,7 @@ import EditableWorkoutExerciseList from "@/components/exercises/EditableWorkoutE
 import ExerciseCarousel from "@/components/exercises/ExerciseCarousel";
 import DropContainer from "@/components/ui/DropContainer";
 import addPublicWorkout from "@/lib/server/serverActions/addPublicWorkout";
+import { DraggableItems, DropContainers } from "@/lib/types/Enums";
 import { Tags } from "@/lib/types/Excercise";
 import useEditableWorkout from "@/lib/utils/hooks/useEditableWorkout";
 
@@ -17,14 +18,6 @@ const tagsValues = Object.values(Tags);
 export default function AddWorkoutPage() {
   const [selectedTags, setSelectedTags] = useState(tagsValues);
 
-  const onTagSelect = (tag: Tags) => {
-    setSelectedTags((currentlySelected) => {
-      if (currentlySelected.includes(tag))
-        return currentlySelected.filter((el) => el !== tag);
-      else return [...currentlySelected, tag];
-    });
-  };
-
   const { exerciseList, addExercise, ...rest } = useEditableWorkout();
 
   const onSave = () => {
@@ -34,7 +27,10 @@ export default function AddWorkoutPage() {
   return (
     <>
       <div>
-        <TagsSelection preSelected={tagsValues} selectTag={onTagSelect} />
+        <TagsSelection
+          preSelected={tagsValues}
+          selectHandler={setSelectedTags}
+        />
       </div>
       <DndProvider backend={HTML5Backend}>
         <ExerciseCarousel
@@ -43,7 +39,10 @@ export default function AddWorkoutPage() {
           selectedPage={0}
           successfullDropFn={addExercise}
         />
-        <DropContainer>
+        <DropContainer
+          accept={[DraggableItems.EXERCISE]}
+          containerName={DropContainers.WORKOUT}
+        >
           <EditableWorkoutExerciseList
             exercisesList={exerciseList}
             isPersonalized={false}

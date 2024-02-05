@@ -28,8 +28,6 @@ export default function ExerciseAddEditForm({
 }: ExerciseAddEditFormProps) {
   const isEdit = !!exerciseId;
 
-  console.log(defaultValues);
-
   const { handleSubmit, register, getValues, setValue } = useForm<ExcerciseDTO>(
     {
       defaultValues,
