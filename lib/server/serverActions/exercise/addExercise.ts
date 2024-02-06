@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import connectDB from "../db/connection";
-import { ExerciseModel } from "../db/models";
+import connectDB from "../../db/connection";
+import { ExerciseModel } from "../../db/models";
 import { redirect } from "next/navigation";
 import { ExcerciseDTO } from "@/lib/types/Excercise";
 

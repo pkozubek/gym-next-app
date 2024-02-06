@@ -14,17 +14,6 @@ export default function Navbar() {
         <Link href="/">Logo</Link>
       </h1>
       <ul className="flex gap-x-4">
-        {isAuth ? (
-          <>
-            <li>
-              <Link href="/exercises/add">Add exercise</Link>
-            </li>
-            <li></li>
-          </>
-        ) : null}
-        <li>
-          <Link href={"/plans"}>Plans</Link>
-        </li>
         <li>
           <Link href={"/exercises"}>Exercises</Link>
         </li>
@@ -32,7 +21,7 @@ export default function Navbar() {
           <Link href={"/workouts"}>Workouts</Link>
         </li>
         <li>
-          <Link href={"/routines"}>Routine</Link>
+          <Link href={"/routines"}>Routines</Link>
         </li>
       </ul>
       <div>

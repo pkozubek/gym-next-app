@@ -4,7 +4,7 @@ import TagsSelection from "@/components/TagsSelection";
 import EditableWorkoutExerciseList from "@/components/exercises/EditableWorkoutExerciseList";
 import ExerciseCarousel from "@/components/exercises/ExerciseCarousel";
 import DropContainer from "@/components/ui/DropContainer";
-import addPublicWorkout from "@/lib/server/serverActions/addPublicWorkout";
+import addPublicWorkout from "@/lib/server/serverActions/exercise/addPublicWorkout";
 import { DraggableItems, DropContainers } from "@/lib/types/Enums";
 import { Tags } from "@/lib/types/Excercise";
 import useEditableWorkout from "@/lib/utils/hooks/useEditableWorkout";

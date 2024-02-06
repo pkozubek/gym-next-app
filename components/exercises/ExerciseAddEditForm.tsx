@@ -1,13 +1,13 @@
 "use client";
 
-import addExercise from "@/lib/server/serverActions/addExercise";
+import addExercise from "@/lib/server/serverActions/exercise/addExercise";
 import { useForm } from "react-hook-form";
 
 import YoutubeVideo from "../YoutubeVideo";
 import TagsSelection from "../TagsSelection";
 
 import { ExcerciseDTO, Tags } from "@/lib/types/Excercise";
-import editExercise from "@/lib/server/serverActions/editExercise";
+import editExercise from "@/lib/server/serverActions/exercise/editExercise";
 
 type ExerciseAddEditFormProps = {
   exerciseId?: string;

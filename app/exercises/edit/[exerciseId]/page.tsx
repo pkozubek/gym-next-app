@@ -1,5 +1,5 @@
 import ExerciseAddEditForm from "@/components/exercises/ExerciseAddEditForm";
-import editExercise from "@/lib/server/serverActions/editExercise";
+import editExercise from "@/lib/server/serverActions/exercise/editExercise";
 import { GetExerciseById } from "@/lib/server/services/exerciseService";
 import { ExcerciseDTO } from "@/lib/types/Excercise";
 

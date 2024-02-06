@@ -1,9 +1,9 @@
 "use server";
 
 import { WorkoutExerciseItem } from "@/lib/types/Excercise";
-import connectDB from "../db/connection";
+import connectDB from "../../db/connection";
 import {  WorkoutExerciseRecord } from "@/lib/types/Workout";
-import { PublcWorkoutModel } from "../db/models";
+import { PublcWorkoutModel } from "../../db/models";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 

@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-green-400 min-h-screen flex flex-col">
+      <body className="bg-green-300 min-h-screen flex flex-col">
         <UserProvider>
           <Navbar />
           <main className="flex flex-col items-center justify-center flex-grow">

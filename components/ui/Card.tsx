@@ -1,7 +1,7 @@
 import { title } from "process";
 
 export type CardProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 };
 
 export default function Card({ children }: CardProps) {
